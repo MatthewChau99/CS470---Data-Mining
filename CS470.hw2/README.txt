@@ -15,5 +15,3 @@ For example
 	python3 Apriori.py T10I4D100K.txt 500 result500.txt
 
 will run Apriori.py with T10I4D100K.txt as dataset, with minimum support count 500, and generate an output file named result500.txt
-
-Have fun grading it :)
