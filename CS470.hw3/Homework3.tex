@@ -1,0 +1,221 @@
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Problem Set/Assignment Template to be used by the
+%% Food and Resource Economics Department - IFAS
+%% University of Florida's graduates.
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Version 1.0 - November 2019
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ariel Soto-Caro
+%%  - asotocaro@ufl.edu
+%%  - arielsotocaro@gmail.com
+%% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[12pt]{article}
+\usepackage{design_ASC}
+
+\setlength\parindent{0pt} %% Do not touch this
+
+%% -----------------------------
+%% TITLE
+%% -----------------------------
+\title{Homework 3} %% Assignment Title
+
+\author{Matthew Chau\\ %% Student name
+CS470\\ %% Code and course name
+\textsc{Emory University}
+}
+
+\date{\today} %% Change "\today" by another date manually
+%% -----------------------------
+%% -----------------------------
+
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\setlength{\droptitle}{-5em}
+%% %%%%%%%%%%%%%%%%%%%%%%%%%
+\maketitle
+
+% --------------------------
+% Start here
+% --------------------------
+
+% %%%%%%%%%%%%%%%%%%%
+\section*{Collaboration Statement}
+For this assignment, I have not consulted or asked for help from anyone for the completion of this assignment.
+% %%%%%%%%%%%%%%%%%%%
+
+
+% %%%%%%%%%%%%%%%%%%%
+\section*{Dataset Description}
+% %%%%%%%%%%%%%%%%%%%
+
+For this homework assignment, I have used two data sets. \\\\
+The first is '\textit{iris.data}', containing 3 classes of 50 instances each, where each class refers to a type of iris plant. This data can be found on \textit{http://archive.ics.uci.edu/ml/datasets/Iris}. According to the website, its attribute description is as follows:
+\begin{flushleft}
+1. sepal length in cm\\\\
+2. sepal width in cm\\\\
+3. petal length in cm\\\\
+4. petal width in cm\\\\
+5. class:
+---- Iris Setosa, Iris Versicolour, Iris Virginica\\\\
+\end{flushleft}
+
+The second data set is \textit{haberman.data}, containing cases from a study that was conducted between 1958 and 1970 at the University of Chicago's Billings Hospital on the survival of patients who had undergone surgery for breast cancer. This data can be found on \textit{http://archive.ics.uci.edu/ml/datasets/Haberman\%27s+Survival}. According to the website, its attribute description is as follows:
+\begin{flushleft}
+1. Age of patient at time of operation (numerical)\\\\
+2. Patient's year of operation (year - 1900, numerical)\\\\
+3. Number of positive auxiliary nodes detected (numerical)\\\\
+4. Survival status (class attribute)\\\\
+---- 1 = the patient survived 5 years or longer\\\\
+---- 2 = the patient died within 5 year\\\\
+\end{flushleft}
+
+\section*{Preprocessing}
+\begin{flushleft}
+In order to make the data easier for numerical calculation, I have removed the nominal attribute on the last column for \textit{iris.data}. In general, if the last column is not numerical type, it will be removed from the data set.\\\\
+\\\\
+Initialization involves creating a data -> cluster map, where each key represents the index of each row of data in the data set, and each value represents the cluster index it belongs to. Also, a cluster -> data map will be created, where each key represents the index of each cluster, and the value represents a set of data indices that that belong to this cluster.
+\end{flushleft}
+
+\section*{Results}
+\begin{flushleft}
+Here are the results for running \textit{iris.data}, with k = 3, 5, and 7. Each experiment is repeated 3 times.
+\end{flushleft}
+when k = 3:
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3      \\ \hline
+Time (s)          & 4.64   & 4.82   & 5.21  \\ \hline
+k                 & \multicolumn{3}{c|}{3}    \\ \hline
+size of cluster1  & 50     & 39     & 61     \\ \hline
+size of cluster2  & 39     & 61     & 39     \\ \hline
+size of cluster3  & 61     & 50     & 50     \\ \hline
+SSE               & 78.945 & 78.945 & 78.945 \\ \hline
+Silhouette Coeff. & 0.551  & 0.551  & 0.551  \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{flushleft}
+when k = 5:
+\end{flushleft}
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3     \\ \hline
+Time (s)          & 5.21   & 6.14   & 6.27  \\ \hline
+k                 & \multicolumn{3}{c|}{5}  \\ \hline
+size of cluster1  & 27     & 32     & 23    \\ \hline
+size of cluster2  & 23     & 27     & 28    \\ \hline
+size of cluster3  & 41     & 40     & 32    \\ \hline
+size of cluster4  & 27     & 28     & 40    \\ \hline
+size of cluster5  & 32     & 23     & 27    \\ \hline
+SSE               & 49.741 & 49.713 & 49.713  \\ \hline
+Silhouette Coeff. & 0.376  & 0.376  & 0.376 \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+when k = 7:
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3     \\ \hline
+Time (s)          & 5.40   & 5.65   & 5.48  \\ \hline
+k                 & \multicolumn{3}{c|}{7}  \\ \hline
+size of cluster1  & 20     & 10     & 23    \\ \hline
+size of cluster2  & 12     & 47     & 24    \\ \hline
+size of cluster3  & 23     & 11     & 33     \\ \hline
+size of cluster4  & 39     & 30     & 27    \\ \hline
+size of cluster5  & 25     & 19     & 12    \\ \hline
+size of cluster6  & 24     & 23     & 27    \\ \hline
+size of cluster7  & 7     & 10     & 4    \\ \hline
+SSE               & 36.816 & 46.977 & 37.555 \\ \hline
+Silhouette Coeff. & 0.350  & 0.324  & 0.337 \\ \hline
+\end{tabular}
+\end{table}
+
+
+Below are the results for running \textit{haberman.txt} with the same configuration:
+
+
+
+when k = 3:
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3      \\ \hline
+Time (s)          & 23.0   & 21.4   & 21.4  \\ \hline
+k                 & \multicolumn{3}{c|}{3}    \\ \hline
+size of cluster1  & 128    & 129    & 152     \\ \hline
+size of cluster2  & 81     & 81     & 30     \\ \hline
+size of cluster3  & 97     & 96     & 124     \\ \hline
+SSE               & 24028.1 & 24191.7 & 21220.4 \\ \hline
+Silhouette Coeff. & 0.322  & 0.322  & 0.431 \\ \hline
+\end{tabular}
+\end{table}
+
+when k = 5:
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3     \\ \hline
+Time (s)          & 21.9   & 22.0   & 20.9  \\ \hline
+k                 & \multicolumn{3}{c|}{5}  \\ \hline
+size of cluster1  & 116    & 67     & 49    \\ \hline
+size of cluster2  & 71     & 74    & 93    \\ \hline
+size of cluster3  & 80     & 85     & 24    \\ \hline
+size of cluster4  & 24     & 29     & 70    \\ \hline
+size of cluster5  & 15     & 51     & 70    \\ \hline
+SSE               & 13790.8 & 13587.1 & 13568.1  \\ \hline
+Silhouette Coeff. & 0.371  & 0.299  & 0.303 \\ \hline
+\end{tabular}
+\end{table}
+
+\newpage
+when k = 7:
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Trial             & 1      & 2      & 3     \\ \hline
+Time (s)          & 24.6   & 23.3   & 23.1  \\ \hline
+k                 & \multicolumn{3}{c|}{7}  \\ \hline
+size of cluster1  & 22     & 41     & 4    \\ \hline
+size of cluster2  & 45     & 61     & 92    \\ \hline
+size of cluster3  & 66     & 53     & 40    \\ \hline
+size of cluster4  & 13     & 27     & 68    \\ \hline
+size of cluster5  & 26     & 50     & 12    \\ \hline
+size of cluster6  & 58     & 45     & 24    \\ \hline
+size of cluster7  & 76     & 29     & 66    \\ \hline
+SSE               & 10972.4 & 11759.9 & 10546.8 \\ \hline
+Silhouette Coeff. & 0.272  & 0.248  & 0.314 \\ \hline
+\end{tabular}
+\end{table}
+
+\section*{Observations and Conclusion}
+\begin{flushleft}
+From the data presented above we can have the following observations:
+\end{flushleft}
+\begin{flushleft}
+1. The larger k is, the smaller the clusters would be, and SSE would be smaller (since the size of the clusters are smaller and Silhouette Coeff. would be smaller.
+\end{flushleft}
+
+\begin{flushleft}
+2. Each trial the clusters might have different indexings (due to randomness while choosing first set of centroids), and each trial might have slight variations for the cluster sizes.
+\end{flushleft}
+\begin{flushleft}
+3. The larger k is, the more time it takes, but change is very subtle. However, if the data set is bigger, it takes a lot more time to run the k-means algorithm, and the time it takes is much sensitive to the size of the dataset.
+\end{flushleft}
+
+\begin{flushleft}
+From this experience, I have also reinforced my skillset with pandas and numpy as I have used lots of them in my code. Moreover, I have gained much experience on dealing with data structures if I draw them out explicitly, so that I have an overview of what and how I'm storing. \\\\
+Also, while dealing with k-means algorithm, we have to test it multiple times with different k to find the best clustering (with the smallest SSE and greatest Silhouette Coefficient, because without k given, sometimes we do not know exactly how much clusters the dataset can be clustered into.
+\end{flushleft}
+
+\end{document}
