@@ -1,4 +1,4 @@
-In this folder, there are 8 files:
+In this folder, there are 7 files:
 
 1. kmeans.py --> the source file written in Python 3
 2. iris.data --> input file 1
