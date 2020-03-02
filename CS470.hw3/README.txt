@@ -6,8 +6,7 @@ In this folder, there are 8 files:
 4. outputIris.txt --> output file for iris.data
 5. outputHaberman --> output file for haberman.data
 6. CS470 Homework 3.pdf --> the report
-7. Homework3.tex --> the LaTeX source code
-8. README.txt --> you're reading it
+7. README.txt --> you're reading it
 
 To run the program, you need to have the Python3 in your system. If not, download from https://www.python.org/downloads/
 
@@ -25,6 +24,3 @@ Moreover, you need to have pandas and numpy installed in your environment. If no
 
 		"pip3 install numpy"
 		"pip3 install pandas"
-		
-
-Have fun grading it :)
